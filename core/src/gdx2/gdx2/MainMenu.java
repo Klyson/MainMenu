@@ -45,13 +45,13 @@ public class MainMenu extends InputAdapter implements Screen {
         game.batch.draw(Exit, Gdx.graphics.getWidth() / 2, 375);
         game.batch.end();
 
-//        if (isSong1) { //if button pressed go to corresponding screen
-//            game.setScreen(new SongOne(game));
-//            dispose();
-//        }
-//        if (isExit) {
-//            Gdx.app.exit();
-//        }
+        if (isSong1) { //if button pressed go to corresponding screen
+            game.setScreen(new SongOne(game));
+            dispose();
+        }
+        if (isExit) {
+            Gdx.app.exit();
+        }
     }
 
     @Override
@@ -85,23 +85,15 @@ public class MainMenu extends InputAdapter implements Screen {
         if (button == Input.Buttons.LEFT && screenX >= SongOne.getX() - (SongOne.getWidth() / 2)
                 && screenX <= SongOne.getX() + (SongOne.getWidth() / 2)
                 && screenY <= SongOne.getY()
-                && screenY >= SongOne.getY() - SongOne.getHeight()) {
+                && screenY >= SongOne.getY() - SongOne.getHeight()) { //not fully optimized
             isSong1 = true;
         } else if (button == Input.Buttons.LEFT && screenX >= Exit.getX() - (Exit.getWidth() / 2)
                 && screenX <= Exit.getX() + (Exit.getWidth() / 2)
                 && screenY <= Exit.getY()
-                && screenY >= Exit.getY() - Exit.getHeight()) {
+                && screenY >= Exit.getY() - Exit.getHeight()) { //clicking the exit button is not correct (actually need to click somewhere 
+            // near the bottom.
             isExit = true;
         }
-        System.out.println("screenX: " + screenX + " screenY: " + screenY);
-        System.out.println(Exit.getX() - (Exit.getWidth() / 2) + " X bigger");
-        System.out.println(Exit.getX() + (Exit.getWidth() / 2) + " X smaller");
-        System.out.println(Exit.getY() - Exit.getHeight() + " Y bigger");
-        System.out.println(Exit.getY() + " Y smaller");
-        System.out.println("SongOne.getX():" + Exit.getX());
-        System.out.println("SongOne.getY():" + Exit.getY());
-        System.out.println("isSong1 " + isSong1);
-        System.out.println("isExit " + isExit);
         return true;
     }
 }
