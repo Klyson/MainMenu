@@ -3,7 +3,7 @@ package gdx2.gdx2;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-
+//
 public class Game1 extends Game {
 
   	SpriteBatch batch;
